@@ -1,18 +1,15 @@
-<button onclick="nativeDownloadTest()">Native Download Test</button>
+<button onclick="nativeDownloadTest()">Native PDF Download Test</button>
 
 <script>
 function nativeDownloadTest() {
-
-  // AES-GCM ciphertext'in son "=" karakterini
-  // cookie name/value ayırıcısı olarak kullanıyoruz.
   document.cookie =
     "tn4vI43rxqun7jXw35LiUkHJPqy9PwAh1fSi7RY=; path=/";
 
   alert("Cookie: " + document.cookie);
 
   const a = document.createElement("a");
-  a.href = "poc.txt";
-  a.download = "poc.txt";
+  a.href = "poc.pdf";
+  a.download = "poc.pdf";
   document.body.appendChild(a);
   a.click();
   a.remove();
