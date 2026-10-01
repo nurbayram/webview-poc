@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WebView Security PoC</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 32px;
+      line-height: 1.5;
+      background: #f7f7f7;
+    }
+    .box {
+      background: #fff;
+      border: 2px solid #222;
+      padding: 22px;
+      border-radius: 12px;
+      max-width: 760px;
+      margin: 40px auto;
+    }
+    .ok {
+      font-weight: bold;
+      font-size: 20px;
+    }
+    code {
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>WebView Security PoC</h1>
+    <p class="ok">External attacker-controlled content loaded successfully.</p>
+    <p id="url"></p>
+    <p id="ua"></p>
+    <p id="bridge"></p>
+    <p id="js"></p>
+  </div>
+
+  <script>
+    document.getElementById("url").textContent =
+      "Current URL: " + location.href;
+
+    document.getElementById("ua").textContent =
+      "User-Agent: " + navigator.userAgent;
+
+    document.getElementById("bridge").textContent =
+      "Android JS interface type: " + typeof window.Android;
+
+    document.getElementById("js").textContent =
+      "JavaScript execution: SUCCESS";
+
+    alert("External JavaScript executed successfully");
+  </script>
+</body>
+</html>
