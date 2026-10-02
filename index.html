@@ -11,12 +11,32 @@ function requestTest() {
 
 <br><br>
 
-<button onclick="internalTest()">
-  Internal Network Test
-</button>
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebView PoC</title>
+</head>
 
-<script>
-function internalTest() {
-  window.location.href = "https://192.168.1.111:8443/";
-}
-</script>
+<body>
+
+  <h2>WebView Internal Network Test</h2>
+
+  <p>
+    Bu sayfa WebView üzerinden dahili ağ erişimini test etmek amacıyla kullanılmaktadır.
+  </p>
+
+  <button onclick="internalHttpsTest()">
+    Internal HTTPS Test
+  </button>
+
+  <script>
+    function internalHttpsTest() {
+      window.location.href =
+        "https://mobil-poc.duckdns.org:8443/";
+    }
+  </script>
+
+</body>
+</html>
