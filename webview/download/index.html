@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WebView Download Security Test</title>
+  <style>
+    body {
+      background: #0f172a;
+      color: #f8fafc;
+      font-family: Arial, sans-serif;
+      padding: 24px;
+    }
+    .card {
+      max-width: 480px;
+      margin: 40px auto;
+      padding: 24px;
+      background: #1e293b;
+      border-radius: 16px;
+    }
+    h1 { color: #38bdf8; }
+    .btn {
+      display: block;
+      padding: 14px;
+      margin: 14px 0;
+      background: #0284c7;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+    .success { color: #4ade80; }
+    .muted { color: #94a3b8; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>WebView Download PoC</h1>
+    <p>Android / iOS Security Validation</p>
+
+    <h3>1. JavaScript Execution</h3>
+    <p id="jsResult">JavaScript not executed</p>
+
+    <h3>2. PDF Download</h3>
+    <a class="btn"
+       href="../../assets/sample.pdf"
+       download="webview-security-test.pdf">
+       Download Test PDF
+    </a>
+
+    <h3>3. PDF Navigation</h3>
+    <a class="btn" href="../../assets/sample.pdf">
+       Open Test PDF
+    </a>
+
+    <p id="status" class="muted">
+      No PDF action initiated.
+    </p>
+
+    <p class="muted">
+      No credentials or private data collected.
+      All actions require user interaction.
+    </p>
+  </div>
+
+  <script>
+    const result = document.getElementById("jsResult");
+    result.textContent = "JavaScript executed successfully";
+    result.className = "success";
+
+    document.querySelectorAll(".btn").forEach(function(link) {
+      link.addEventListener("click", function() {
+        document.getElementById("status").textContent =
+          "PDF action initiated by user.";
+      });
+    });
+  </script>
+</body>
+</html>
