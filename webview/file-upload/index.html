@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WebView File Upload PoC</title>
+  <style>
+    body {
+      background: #0f172a;
+      color: #f8fafc;
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      text-align: center;
+    }
+    .card {
+      max-width: 450px;
+      margin: 50px auto;
+      padding: 30px;
+      background: #1e293b;
+      border-radius: 16px;
+    }
+    h1 { color: #38bdf8; }
+    input { margin: 20px 0; max-width: 100%; }
+    .result {
+      color: #4ade80;
+      margin-top: 20px;
+      overflow-wrap: anywhere;
+    }
+    .muted { color: #94a3b8; font-size: 14px; }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>File Upload Security Test</h1>
+    <p>Android / iOS WebView PoC</p>
+
+    <input
+      type="file"
+      id="fileInput"
+      accept="image/*,.pdf,.txt"
+    >
+
+    <div id="result" class="result">
+      No file selected
+    </div>
+
+    <p class="muted">
+      Local file selection only.
+      No files are uploaded or transmitted.
+    </p>
+  </div>
+
+  <script>
+    document.getElementById("fileInput")
+      .addEventListener("change", function () {
+        const file = this.files[0];
+        const result =
+          document.getElementById("result");
+
+        if (file) {
+          result.textContent =
+            "File selection successful!" +
+            "\nName: " + file.name +
+            "\nSize: " + file.size + " bytes" +
+            "\nType: " + (file.type || "unknown");
+          result.style.whiteSpace = "pre-line";
+        } else {
+          result.textContent = "No file selected";
+        }
+      });
+  </script>
+
+</body>
+</html>
