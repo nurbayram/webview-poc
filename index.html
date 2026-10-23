@@ -1,1 +1,38 @@
-<!DOCTYPE html><html lang="tr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>WebView Security Test</title><link rel="stylesheet" href="../assets/style.css"></head><body><main><span class="tag">Mobile PoC Lab</span><h1>SecurityTest2026</h1><p>External content loaded inside Android WebView or browser.</p><section class="panel"><p id="result" class="status">JavaScript not executed</p><p>Bu sayfa veri toplamaz veya dış sunuculara veri göndermez.</p></section><footer>Benign JavaScript execution validation</footer></main><script>document.getElementById('result').textContent='JavaScript executed successfully';document.getElementById('result').classList.add('ok');</script></body></html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mobile Security PoC Lab</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <main>
+    <span class="tag">Mobile Application Security</span>
+    <h1>WebView & Deep Link PoC Lab</h1>
+    <p>
+      A collection of reusable security test pages
+      for authorized Android and iOS assessments.
+    </p>
+
+    <section class="panel">
+      <h2>WebView Tests</h2>
+      <p><a href="webview/javascript/">JavaScript Execution</a></p>
+      <p><a href="webview/redirects/">Redirect Validation</a></p>
+      <p><a href="webview/file-upload/">File Picker Test</a></p>
+    </section>
+
+    <section class="panel">
+      <h2>Deep Link Tests</h2>
+      <p><a href="deeplink/landing/">Landing Page</a></p>
+      <p><a href="deeplink/parameters/">Parameter Inspection</a></p>
+    </section>
+
+    <footer>
+      Authorized security testing only.
+      No credential collection or data exfiltration.
+    </footer>
+  </main>
+</body>
+</html>
